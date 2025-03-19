@@ -12,7 +12,7 @@ ENV NGINX_ENVSUBST_TEMPLATE_SUFFIX  .template
 
 COPY work /opt/utils/
 
-RUN set -eux \
+RUN set -eux && chmod +x  /opt/utils/*.sh \
  && useradd nginx -G www-data \
  && mkdir -pv /var/cache/nginx /var/log/nginx \
  && chown -R nginx:www-data /var/cache/nginx /var/log/nginx \
